@@ -73,8 +73,8 @@ source venv/bin/activate
 После активации в начале строки терминала появится префикс (venv).
 
 ## Установите зависимости
-    ```bashpip
-    install -r requirements.txt
+    ```bash
+    pip install -r requirements.txt
 
 ## Запустите приложение
 
