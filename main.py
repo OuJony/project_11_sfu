@@ -5,34 +5,30 @@ from tkinter import filedialog, messagebox, simpledialog
 from PIL import Image, ImageTk
 import os
 
-# Глобальные переменные для хранения оригинального и текущего изображения
+# Глобальные переменные для хранения исходного изображения
 original_image = None
 current_image = None
 
 def display_image(img):
-    """Отображает изображение внутри интерфейса Tkinter (в одном окне)."""
+    """Функция отображает изображение внутри интерфейса Tkinter."""
     global img_label
     if img is not None:
-        # OpenCV использует BGR, а Tkinter/Pillow требуют RGB
+        # OpenCV использует BGR, а Tkinter и Pillow требуют RGB
+        
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        
-        # Конвертируем массив numpy в формат, понятный Tkinter
         img_pil = Image.fromarray(img_rgb)
-        
-        # Ограничиваем максимальный размер вывода, чтобы окно не растягивалось на весь экран
         img_pil.thumbnail((800, 600))
-        
         img_tk = ImageTk.PhotoImage(image=img_pil)
         
-        # Обновляем картинку в существующем виджете Label
+        # Обновляем картинку в существующем виджете
         img_label.config(image=img_tk)
-        img_label.image = img_tk  # Сохраняем ссылку, чтобы картинка не удалялась из памяти
+        img_label.image = img_tk  # Чтобы фото не удалялось из памяти
 
 def load_image():
-    """Загружает изображение с диска кроссплатформенно."""
+    """Функция загружает изображение с диска."""
     global original_image, current_image
     file_path = filedialog.askopenfilename(
-        filetypes=[("Image files", "*.jpg *.jpeg *.png *.bmp *.webp")]
+        filetypes=[("Image files", "*.jpg *.jpeg *.png")]
     )
     if file_path:
         try:
@@ -46,7 +42,7 @@ def load_image():
             messagebox.showerror("Ошибка", f"Не удалось загрузить изображение:\n{str(e)}")
 
 def capture_camera():
-    """Делает снимок с веб-камеры."""
+    """Функция для снимка с веб-камеры."""
     global original_image, current_image
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
@@ -65,7 +61,7 @@ def capture_camera():
         messagebox.showerror("Ошибка", "Не удалось сделать снимок.")
 
 def show_channel():
-    """Показывает выбранный цветовой канал (R, G или B) от оригинального изображения."""
+    """Функция показывает выбранный цветовой канал (R, G, B) от исходного изображения."""
     global original_image, current_image
     if original_image is None:
         messagebox.showinfo("Информация", "Сначала загрузите или захватите изображение.")
@@ -80,7 +76,7 @@ def show_channel():
         messagebox.showerror("Ошибка", "Некорректный канал. Введите R, G или B.")
         return
     
-    # Всегда берем каналы от чистого оригинального изображения
+    # Всегда берем каналы от исходного изображения
     r, g, b = cv2.split(original_image)
     zero = np.zeros_like(b)
     
@@ -95,7 +91,7 @@ def show_channel():
     
 
 def crop_image():
-    """Выполняет обрезку изображения (Вариант 11)."""
+    """Функция выполняет обрезку изображения, по введённым значениям пользователя."""
     global current_image
     if current_image is None:
         messagebox.showinfo("Информация", "Сначала загрузите или захватите изображение.")
@@ -124,7 +120,7 @@ def crop_image():
         messagebox.showerror("Ошибка", f"Не удалось обрезать изображение:\n{str(e)}")
 
 def enhance_brightness():
-    """Повышает яркость изображения (Вариант 11)."""
+    """Функция повышает яркость изображения, по введёному значению от пользователя."""
     global current_image
     if current_image is None:
         messagebox.showinfo("Информация", "Сначала загрузите или захватите изображение.")
@@ -143,7 +139,7 @@ def enhance_brightness():
         messagebox.showerror("Ошибка", "Пожалуйста, введите целые число.")
 
 def draw_circle():
-    """Рисует круг красным цветом (Вариант 11)."""
+    """Функция рисует круг красным цветом (пользователь задёт радиус и координаты)."""
     global current_image
     if current_image is None:
         messagebox.showinfo("Информация", "Сначала загрузите или захватите изображение.")
@@ -170,7 +166,7 @@ def draw_circle():
         messagebox.showerror("Ошибка", f"Не удалось нарисовать круг:\n{str(e)}")
 
 def reset_image():
-    """Сбрасывает изменения до исходного состояния."""
+    """Функция сбрасывает изменения до исходного состояния."""
     global original_image, current_image
     if original_image is not None:
         current_image = original_image.copy()
@@ -178,7 +174,7 @@ def reset_image():
     else:
         messagebox.showinfo("Информация", "Нет загруженного изображения для сброса.")
 
-# --- Инициализация GUI Интерфейса ---
+# Инициализация GUI интерфейса
 root = tk.Tk()
 root.title("Image Processing App")
 root.resizable(True, True)
@@ -186,8 +182,6 @@ root.resizable(True, True)
 # Верхний фрейм для панели кнопок
 btn_frame = tk.Frame(root)
 btn_frame.pack(pady=15, padx=15, fill=tk.X)
-
-# Кнопки в ряд
 tk.Button(btn_frame, text="Загрузить изображение", command=load_image).pack(side=tk.LEFT, padx=4)
 tk.Button(btn_frame, text="Сделать снимок с веб-камеры", command=capture_camera).pack(side=tk.LEFT, padx=4)
 tk.Button(btn_frame, text="Показать канал", command=show_channel).pack(side=tk.LEFT, padx=4)
