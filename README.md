@@ -47,7 +47,8 @@
 
 # Windows:
 # Вариант А (Рекомендуемый)
-py -3.6 -m venv venv
+    ```bash
+    py -3.6 -m venv venv
 
 # Вариант Б (Если Вариант А выдал ошибку)
 # Windows:
