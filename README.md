@@ -77,7 +77,8 @@
 # Вариант Б (Если Вариант А выдал ошибку)
   Windows:
 ```bash
-    /c/Users/kandi/AppData/Local/Programs/Python/Python36/python.exe -m venv venv
+    "ваша ссылка на версию Python на диске" -m venv venv
+     (например: /c/Users/kandi/AppData/Local/Programs/Python/Python36/python.exe -m venv venv)
 ```
 # Linux / macOS:
 python3 -m venv venv
