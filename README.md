@@ -40,7 +40,7 @@ Bash
 
 Bash
 
-python -m venv venv, (лучше "py -3.6.8 -m venv venv")
+python -m venv venv, (лучше "py -3.6 -m venv venv")
 
 Для macOS / Linux:
 
