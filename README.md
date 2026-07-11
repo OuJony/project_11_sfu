@@ -13,13 +13,13 @@
 Откройте терминал (или командную строку) и перейдите в корневую директорию проекта:
 
 Bash
-cd path/to/Project_sfu
+"cd path/to/Project_sfu"
 (Вместо path/to/Project_sfu укажите реальный путь к папке на вашем компьютере).
 
 2. Создание виртуального окружения
 Для изоляции зависимостей проекта создайте локальное виртуальное окружение venv:
 
-Чтобы избежать конфликтов с другими версиями Python в системе, необходимо создать чистое окружение строго на базе Python 3.6.
+Чтобы избежать конфликтов с другими версиями Python в системе, необходимо создать чистое окружение строго на базе Python 3.6.8.
 
 В зависимости от настроек вашей системы, введите в терминал одну из следующих команд (начните с первой, если она выдаст ошибку — используйте вторую):
 
@@ -27,26 +27,28 @@ cd path/to/Project_sfu
 
 Bash
 
-py -3.6 -m venv venv
+"py -3.6 -m venv venv"
 
 Вариант Б
 
 Bash
 
-/c/Users/kandi/AppData/Local/Programs/Python/Python36/python.exe -m venv venv
+"/c/Users/kandi/AppData/Local/Programs/Python/Python36/python.exe -m venv venv"
 После выполнения команды в папке проекта появится новая папка venv
 
 Для Windows:
 
 Bash
 
-python -m venv venv, (лучше "py -3.6 -m venv venv")
+"python -m venv venv", (лучше "py -3.6 -m venv venv")
 
 Для macOS / Linux:
 
 Bash
 
-python3 -m venv venv
+"python3 -m venv venv"
+
+Чтобы проверить та ли версия Python устанавилась в окружение ипользуйте команду: "./venv/Scripts/python --version"
 
 3. Активация виртуального окружения
 Активируйте созданное окружение перед установкой библиотек:
@@ -54,25 +56,25 @@ python3 -m venv venv
 Для Windows (Command Prompt / Git Bash):
 
 Bash
-source venv/Scripts/activate   
+"source venv/Scripts/activate"   
 
 Для macOS / Linux (Terminal):
-
 Bash
-source venv/bin/activate
+
+"source venv/bin/activate"
 После активации в начале строки терминала появится префикс (venv).
 
 4. Установка зависимостей
 Установите все необходимые для работы приложения библиотеки одной командой из файла зависимостей:
 
 Bash
-pip install -r requirements.txt
+"pip install -r requirements.txt"
 
 5. Запуск приложения
 Запустите главный скрипт программы:
 
 Bash
-python main.py или нажмите на флажок старта
+"python main.py" или нажмите на флажок старта
 
 Использование приложения
 После запуска откроется графический интерфейс со встроенной областью просмотра.
