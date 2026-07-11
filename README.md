@@ -52,17 +52,20 @@
 
 # Вариант Б (Если Вариант А выдал ошибку)
 # Windows:
-/c/Users/kandi/AppData/Local/Programs/Python/Python36/python.exe -m venv venv
+    ```bash
+    /c/Users/kandi/AppData/Local/Programs/Python/Python36/python.exe -m venv venv
 
 # Linux / macOS:
 python3 -m venv venv
 
 ## Проверьте версию Python в созданном окружении
-./venv/Scripts/python --version
+    ```bash
+    ./venv/Scripts/python --version
 
 ## Активируйте виртуальное окружение:
 # Windows:
-source venv/Scripts/activate
+    ```bash
+    source venv/Scripts/activate
 
 # Linux / macOS:
 source venv/bin/activate
@@ -70,11 +73,13 @@ source venv/bin/activate
 После активации в начале строки терминала появится префикс (venv).
 
 ## Установите зависимости
-pip install -r requirements.txt
+    ```bashpip
+    install -r requirements.txt
 
 ## Запустите приложение
 
-python main.py
+    ```bash
+    python main.py
 
 (Или нажмите на флажок старта «Run Python File» в правом верхнем углу интерфейса VS Code).
 
