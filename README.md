@@ -19,10 +19,25 @@ cd path/to/Project_sfu
 2. Создание виртуального окружения
 Для изоляции зависимостей проекта создайте локальное виртуальное окружение venv:
 
+Чтобы избежать конфликтов с другими версиями Python в системе, необходимо создать чистое окружение строго на базе Python 3.6.
+
+В зависимости от настроек вашей системы, введите в терминал одну из следующих команд (начните с первой, если она выдаст ошибку — используйте вторую):
+
+Вариант А (через лаунчер Python):
+
+Bash
+py -3.6 -m venv venv
+Вариант Б
+
+Bash
+/c/Users/kandi/AppData/Local/Programs/Python/Python36/python.exe -m venv venv
+После выполнения команды в папке проекта появится новая папка venv
+
 Для Windows:
 
 Bash
 python -m venv venv, (лучше "py -3.6.8 -m venv venv")
+
 Для macOS / Linux:
 
 Bash
@@ -34,7 +49,8 @@ python3 -m venv venv
 Для Windows (Command Prompt / Git Bash):
 
 Bash
-source venv/Scripts/activate или 
+source venv/Scripts/activate   
+
 Для macOS / Linux (Terminal):
 
 Bash
