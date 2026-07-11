@@ -26,21 +26,25 @@ cd path/to/Project_sfu
 Вариант А (через лаунчер Python):
 
 Bash
+
 py -3.6 -m venv venv
 Вариант Б
 
 Bash
+
 /c/Users/kandi/AppData/Local/Programs/Python/Python36/python.exe -m venv venv
 После выполнения команды в папке проекта появится новая папка venv
 
 Для Windows:
 
 Bash
+
 python -m venv venv, (лучше "py -3.6.8 -m venv venv")
 
 Для macOS / Linux:
 
 Bash
+
 python3 -m venv venv
 
 3. Активация виртуального окружения
