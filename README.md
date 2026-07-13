@@ -56,20 +56,20 @@
 
 ---
 
-## Установка и запуск
+# Установка и запуск
 
-# Только для Linux Установите необходимые системные компоненты: Перед созданием окружения необходимо установить графический движок и модуль виртуальных окружений на уровне операционной системы.:
+## Только для Linux. Установите необходимые системные компоненты: Перед созданием окружения необходимо установить графический движок и модуль виртуальных окружений на уровне операционной системы.:
 
-Ubuntu / Debian / Linux Mint:
+**Ubuntu / Debian / Linux Mint:**
 ```bash
      sudo apt update
      sudo apt install python3-tk python3-venv
 ```
-Fedora / RedHat:
+**Fedora / RedHat:**
 ```bash
      sudo dnf install python3-tkinter
 ```
-Arch Linux / Manjaro:
+**Arch Linux / Manjaro:**
 ```bash
      sudo pacman -S tk
 ```
@@ -80,43 +80,43 @@ Arch Linux / Manjaro:
 
    Вместо path/to/Project_sfu укажите реальный путь к папке на вашем компьютере).
 ```
-# Создайте виртуальное окружение
+## Создайте виртуальное окружение
 Чтобы избежать конфликтов с другими версиями Python в системе, необходимо создать чистое окружение строго на базе Python 3.6.8. В зависимости от настроек вашей системы, используйте один из вариантов:
 
   Windows:
-## Вариант А (Рекомендуемый)
+# Вариант А (Рекомендуемый)
 ```bash
     py -3.6 -m venv venv
 ```
 
-## Вариант Б (Если Вариант А выдал ошибку)
+# Вариант Б (Если Вариант А выдал ошибку)
   Windows:
 ```bash
     "ваша ссылка на версию Python на диске" -m venv venv
      (например: /c/Users/kandi/AppData/Local/Programs/Python/Python36/python.exe -m venv venv)
 ```
-## Linux / macOS:
+# Linux / macOS:
 python3 -m venv venv
 
-# Проверьте версию Python в созданном окружении
+## Проверьте версию Python в созданном окружении
 ```bash
     ./venv/Scripts/python --version
 ```
-# Активируйте виртуальное окружение:
+## Активируйте виртуальное окружение:
   Windows:
 ```bash
     source venv/Scripts/activate
 ```
-## Linux / macOS:
+# Linux / macOS:
 source venv/bin/activate
 
 После активации в начале строки терминала появится префикс (venv).
 
-# Установите зависимости
+## Установите зависимости
 ```bash
     pip install -r requirements.txt
 ```
-# Запустите приложение
+## Запустите приложение
 
 ```bash
     python main.py
