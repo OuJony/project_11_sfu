@@ -90,34 +90,34 @@
     py -3.6 -m venv venv
 ```
 
-# Вариант Б (Если Вариант А выдал ошибку)
+## Вариант Б (Если Вариант А выдал ошибку)
   Windows:
 ```bash
     "ваша ссылка на версию Python на диске" -m venv venv
      (например: /c/Users/kandi/AppData/Local/Programs/Python/Python36/python.exe -m venv venv)
 ```
-# Linux / macOS:
+## Linux / macOS:
 python3 -m venv venv
 
-## Проверьте версию Python в созданном окружении
+# Проверьте версию Python в созданном окружении
 ```bash
     ./venv/Scripts/python --version
 ```
-## Активируйте виртуальное окружение:
+# Активируйте виртуальное окружение:
   Windows:
 ```bash
     source venv/Scripts/activate
 ```
-# Linux / macOS:
+## Linux / macOS:
 source venv/bin/activate
 
 После активации в начале строки терминала появится префикс (venv).
 
-## Установите зависимости
+# Установите зависимости
 ```bash
     pip install -r requirements.txt
 ```
-## Запустите приложение
+# Запустите приложение
 
 ```bash
     python main.py
